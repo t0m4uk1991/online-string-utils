@@ -1,24 +1,24 @@
-import logo from './logo.svg';
+
 import './App.css';
+import Navbar from './components/navbar/Navbar';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
+
+import Base64Page from './pages/Base64Page';
+import SymbolsCounterPage from './pages/SymbolsCounterPage';
+import WordCounterPage from './pages/WordCounterPage';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Router>
+        <Navbar/>
+        <Switch>
+          <Route path="/" exact component={Base64Page}/>
+          <Route path="/symbolscounter" exact component={SymbolsCounterPage}/>
+          <Route path="/wordscount" exact component={WordCounterPage}/>
+        </Switch>
+      </Router>
+    </>
   );
 }
 
